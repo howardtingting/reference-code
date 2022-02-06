@@ -1,0 +1,39 @@
+*GETTING STARTED:
+    Testing with hacktest (following https://github.com/hhvm/hacktest) and fbexpect (https://github.com/hhvm/fbexpect)
+
+*NOTE: I can use my custom .sh script to unit test and lint:
+1. ./hacktest.sh #run .sh script
+
+*UNIT TESTING
+1. Install hacktest and fbexpect: 
+    a. php /path/to/composer.phar require --dev hhvm/hacktest facebook/fbexpect
+        *NOTE: /path/to/composer.phar === /usr/local/bin/composer.phar
+                                or
+    b. composer require hhvm/hacktest facebook/fbexpect
+        *NOTE: requires composer installation (google it)
+    NOTE: creates composer.json, composer.lock and vendor folder
+2. Create test files
+    a. file contains class s.t. filename === classname
+    b. see *.hack files in ./unit_tests/
+3. configure autoload:
+    a. see ./autoload_setup_instructions.txt
+4. Run test: ./vendor/bin/hacktest [OPTIONS] unit_tests/
+
+*LINTING (enforce non-required stylistic choices)
+0. composer require hhvm/hhast
+1. create hhast-lint.json
+    note: see ./hhast-lint.json
+2. Run linter: vendor/bin/hhast-lint
+
+**CREATE TOY FUNCTIONS:
+1. see ./src/square_vec.hack
+    *a. create executable CLI file that runs square_vec: see ./bin/square_some_things.hack
+        chmod +x square_some_things.hack
+        square_some_things.hack
+
+***TravisCI to run unit tests AND linting with .sh script; works with github
+See travis-ci.com for tutorial
+1. create .travis.yml
+    note: see ./.travis.yml
+2. create .travis.sh
+    note: see ./.travis.sh
