@@ -2,15 +2,16 @@ Setup hh_autoload (from https://docs.hhvm.com/hack/getting-started/starting-a-re
 
 $ curl https://raw.githubusercontent.com/hhvm/hhast/master/.hhconfig > .hhconfig
 $ mkdir bin src unit_tests
-$ cat > hh_autoload.json
-{
-  "roots": [
-    "src/"
+$ echo "{
+  \"roots\": [
+    \"src/\"
   ],
-  "devRoots": [
-    "unit_tests/"
+  \"devRoots\": [
+    \"tests/\"
   ],
-  "devFailureHandler": "Facebook\\AutoloadMap\\HHClientFallbackHandler"
-}
+  \"devFailureHandler\": \"Facebook\\\\\\AutoloadMap\\\\\\HHClientFallbackHandler\"
+}" > hh_autoload.json
 $ composer require hhvm/hsl hhvm/hhvm-autoload
 $ composer require --dev hhvm/hhast hhvm/hacktest facebook/fbexpect
+
+#NOTE: run ./autoload_setup.sh to automate these commands
