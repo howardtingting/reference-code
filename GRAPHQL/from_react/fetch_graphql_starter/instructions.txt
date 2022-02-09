@@ -1,0 +1,5 @@
+This tutorial shows how to fetch GraphQL data from an API endpoint
+Files modified:
+(1) .env.local //(optional for github api access)
+(2) src/fetchGraphQL.js //module built specifically to fetch via GraphQL
+(3) src/App.js //calls fetchGraphQL and displays the data

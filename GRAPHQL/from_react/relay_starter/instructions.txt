@@ -1,0 +1,9 @@
+This tutorial shows how to fetch GraphQL data from an API endpoint utilizing relay
+Files modified:
+(1) .env.local //(optional for github api access)
+(2) src/fetchGraphQL.js //module built specifically to fetch via GraphQL
+(3) src/RelayEnvironment.js //calls fetchGraphQL in a relay context; a wrapper around the call
+    note: generates src/__generated__/
+(4) src/App.js //sets up and utilizes RelayEnvironment & associated relay libs
+
+RUN shell script to install relay
